@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { FavoriteService } from 'src/app/services/favorite.service';
 
 @Component({
   selector: 'app-details',
@@ -11,17 +12,33 @@ export class DetailsPage implements OnInit {
 
   name: string = '';
   pokemon: any;
-
+  isFav: boolean = false;
   constructor(
     private route: ActivatedRoute,
-    private pokemonService: PokemonService
+    private pokemonService: PokemonService,
+    private favoriteService: FavoriteService
   ) { }
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('name') || '';
     this.loadPokemon();
+    this.checkFavorite();
   }
 
+  checkFavorite() {
+    this.isFav = this.favoriteService.isFavorite(this.name);
+  }
+
+  toggleFavorite() {
+    if (this.isFav) {
+      this.favoriteService.removeFavorite(this.name);
+      this.isFav = false;
+    } else {
+      this.favoriteService.addFavorite(this.name);
+      this.isFav = true;
+    }
+  }
+  
   loadPokemon() {
     this.pokemonService.getPokemonDetails(this.name).subscribe({
       next: (data) => {

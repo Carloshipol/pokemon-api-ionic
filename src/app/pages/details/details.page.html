@@ -16,17 +16,23 @@
       <ion-card-subtitle>#{{ pokemon.id }}</ion-card-subtitle>
     </ion-card-header>
 
+    <ion-button expand="full" color="warning" (click)="toggleFavorite()">
+      <ion-icon slot="start" [name]="isFav ? 'star' : 'star-outline'"></ion-icon>
+      {{ isFav ? 'Remove from Favorites' : 'Add to Favorites' }}
+    </ion-button>
+    
+
     <ion-card-content>
       <h2>Informações</h2>
       <ion-list>
         <ion-item>
-          <ion-label>Altura: {{ pokemon.height / 10 }} m</ion-label>
+          <ion-label>Height: {{ pokemon.height / 10 }} m</ion-label>
         </ion-item>
         <ion-item>
-          <ion-label>Peso: {{ pokemon.weight / 10 }} kg</ion-label>
+          <ion-label>Weight: {{ pokemon.weight / 10 }} kg</ion-label>
         </ion-item>
         <ion-item>
-          <ion-label>Tipo(s): {{ getTypes() }}</ion-label>
+          <ion-label>Type: {{ getTypes() }}</ion-label>
         </ion-item>
         <ion-item>
           <ion-label>
