@@ -44,18 +44,6 @@ Endpoints principais:
 - **Pokémons:** Dados obtidos da PokeAPI via HttpClient.
 - **Favoritos:** Persistência via LocalStorage.
 
-## Estrutura de Pastas
-src/
-├── app/
-│ ├── pages/
-│ │ ├── home/
-│ │ ├── details/
-│ │ └── favorites/
-│ ├── services/
-│ ├── app-routing.module.ts
-│ └── app.module.ts
-
-
 ## Boas Práticas
 
 - Injeção de dependência (services)
@@ -63,10 +51,10 @@ src/
 - Código modular e reutilizável
 - Commits semânticos e frequentes
 - Responsividade garantida pelo Ionic Framework
+- Testes unitários com Jasmine
 
 ## Melhorias Futuras
 
-- Testes unitários com Jasmine e Karma
 - Integração com Firebase para favoritos na nuvem
 - Implementação de tema claro/escuro
 - Deploy como PWA (Progressive Web App)
