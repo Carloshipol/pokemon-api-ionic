@@ -1,13 +1,22 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>favorites</ion-title>
+    <ion-title>Favorites</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">favorites</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-item *ngFor="let pokemon of pokemons" (click)="goToDetails(pokemon.name)">
+      <ion-avatar slot="start">
+        <img [src]="pokemon.image" />
+      </ion-avatar>
+      <ion-label>{{ pokemon.name | titlecase }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="pokemons.length === 0">
+    <ion-label>No favorited Pokémon yet.</ion-label>
+  </ion-item>
+
 </ion-content>
