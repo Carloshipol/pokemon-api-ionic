@@ -1,11 +1,8 @@
 {
-  "builds": [
-    {
-      "src": "www/**/*",
-      "use": "@vercel/static"
-    }
-  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/((?!api/.*).*)",
+      "destination": "/index.html"
+    }
   ]
 }
