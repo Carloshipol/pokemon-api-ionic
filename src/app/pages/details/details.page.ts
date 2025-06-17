@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { FavoriteService } from 'src/app/services/favorite.service';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-details',
+  standalone: true,  // <-- ATENÇÃO
+  imports: [CommonModule, IonicModule],  // <-- importe os módulos usados no template
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
 })

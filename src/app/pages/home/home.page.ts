@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
+  standalone: true,  // <-- ATENÇÃO: declare standalone aqui
+  imports: [CommonModule, IonicModule],  // <-- importe os módulos que usa no template
   templateUrl: './home.page.html',
-  styleUrl: './home.page.scss'
+  styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit {
 

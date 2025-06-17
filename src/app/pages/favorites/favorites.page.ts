@@ -2,11 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { FavoriteService } from 'src/app/services/favorite.service';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.page.html',
   styleUrls: ['./favorites.page.scss'],
+  standalone: true,          // <-- aqui: define como standalone
+  imports: [                 // <-- aqui: importa módulos que o template usa
+    CommonModule,
+    IonicModule
+  ]
 })
 export class FavoritesPage implements OnInit {
 
