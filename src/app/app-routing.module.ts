@@ -1,30 +1,20 @@
+// app-routing.module.ts
+
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
+import { DetailsPage } from './pages/details/details.page';
+import { FavoritesPage } from './pages/favorites/favorites.page';
+import { HomePage } from './pages/home/home.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: 'details/:name',
-    loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
-  },
-  {
-    path: 'favorites',
-    loadChildren: () => import('./pages/favorites/favorites.module').then( m => m.FavoritesPageModule)
-  },
+  { path: '', component: HomePage },
+  { path: 'details/:name', component: DetailsPage },
+  { path: 'favorites', component: FavoritesPage }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
